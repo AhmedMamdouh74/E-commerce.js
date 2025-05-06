@@ -1,0 +1,142 @@
+{
+  "users": [
+    {
+      "id": "1518",
+      "username": "Ahmed Mamdouh",
+      "email": "admin@admin.com",
+      "password": "123456",
+      "role": "admin"
+    },
+    {
+      "id": "7440",
+      "username": "Alaaa",
+      "email": "allaa@gmail.com",
+      "password": "123456",
+      "role": "customer"
+    },
+    {
+      "id": "f617",
+      "username": "alaa",
+      "email": "alaa@alaa.com",
+      "password": "123456",
+      "role": "seller"
+    }
+  ],
+  "products": [
+    {
+      "id": "274",
+      "sellerId": "2",
+      "name": "Wireless Headphones",
+      "price": 149.99,
+      "category": "accessories",
+      "status": "approved",
+      "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSexusKsfLbAZfHy3asTu9TtJDJ7P8z8zWhnfjcBgZOLKlSodNKuRQjoZ-zIWBIOEUAbtYlcmUDXVcFmE_M4BHmah3XOvb-_ZD90QoeebaPi6Kgh1k-ciwLf-54F-Fg9FFp8t62pcHLMw&usqp=CAc"
+    },
+    {
+      "id": "279",
+      "sellerId": "2",
+      "name": "Wireless Headphones",
+      "price": 149.99,
+      "category": "accessories",
+      "status": "approved",
+      "image": "https://"
+    },
+    {
+      "id": "278",
+      "sellerId": "2",
+      "name": "Wireless Headphones",
+      "price": 149.99,
+      "category": "accessories",
+      "status": "approved",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": "257",
+      "sellerId": "2",
+      "name": "Wireless Headphones",
+      "price": 149.99,
+      "category": "accessories",
+      "status": "approved",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": "235",
+      "sellerId": "f617",
+      "name": "Wireless ",
+      "price": 149.99877878,
+      "category": "lap",
+      "status": "approved",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": "234",
+      "sellerId": "f617",
+      "name": "Wireless Headphones",
+      "price": 149.99,
+      "category": "accessories",
+      "status": "approved",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": "233",
+      "sellerId": "f617",
+      "name": "Wireless Headphones",
+      "price": 149.99,
+      "category": "accessories",
+      "status": "approved",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": "232",
+      "sellerId": "f617",
+      "name": "Wireless Headphones",
+      "price": 149.99,
+      "category": "accessories",
+      "status": "approved",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": "231",
+      "sellerId": "f617",
+      "name": "Wireless Headphones",
+      "price": 149.99,
+      "category": "accessories",
+      "status": "approved",
+      "image": "https://via.placeholder.com/150"
+    }
+    
+   
+  ],
+  "cart": [
+    {
+      "id": "1",
+      "userId": null,
+      "productId": null,
+      "quantity": 2
+    }
+  ],
+  "orders": [
+    {
+      "id": "1",
+      "userId": null,
+      "items": [
+        {
+          "productId": "1",
+          "quantity": 2
+        }
+      ],
+      "total": 1599.98,
+      "status": "pending",
+      "date": "2025-05-01"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "1",
+      "productId": null,
+      "userId": "3",
+      "rating": 4,
+      "comment": "Very good product"
+    }
+  ]
+}
