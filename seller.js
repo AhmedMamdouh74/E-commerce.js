@@ -1,252 +1,67 @@
-//  || 1;
 
-// // Load all data when page is ready
-// document.addEventListener("load", () => {
-//   loadDashboardStats(currentSellerId);
-//   loadRecentOrders(currentSellerId);
-//   loadProducts(currentSellerId);
-//   loadOrders(currentSellerId);
-
-// // ===================== DASHBOARD =====================
-// function loadDashboardStats(sellerId) {
-//   fetch(`http://localhost:3000/products?sellerId=${sellerId}`)
-//     .then(res => res.json())
-//     .then(products => {
-//       document.getElementById("total-products").textContent = products.length;
-//     });
-
-//   fetch(`http://localhost:3000/orders?sellerId=${sellerId}`)
-//     .then(res => res.json())
-//     .then(orders => {
-//       document.getElementById("total-orders").textContent = orders.length;
-//       const pending = orders.filter(o => o.status === 'pending').length;
-//       document.getElementById("pending-orders").textContent = pending;
-//       const revenue = orders.reduce((acc, o) => acc + o.total, 0);
-//       document.getElementById("total-revenue").textContent = `$${revenue.toFixed(2)}`;
-//     });
-// }
-
-// function loadRecentOrders(sellerId) {
-//   fetch(`http://localhost:3000/orders?sellerId=${sellerId}&_sort=date&_order=desc&_limit=5`)
-//     .then(res => res.json())
-//     .then(orders => {
-//       const tbody = document.getElementById("recent-orders-list");
-//       tbody.innerHTML = "";
-//       orders.forEach(order => {
-//         const row = `<tr>
-//           <td>${order.id}</td>
-//           <td>${order.customer}</td>
-//           <td>$${order.total}</td>
-//           <td>${order.status}</td>
-//           <td>${order.date}</td>
-//         </tr>`;
-//         tbody.innerHTML += row;
-//       });
-//     });
-// }
-
-// // ===================== PRODUCT MANAGEMENT =====================
-// function loadProducts(sellerId) {
-//   fetch(`http://localhost:3000/products?sellerId=${sellerId}`)
-//     .then(res => res.json())
-//     .then(products => {
-//       const tbody = document.getElementById("products-list");
-//       tbody.innerHTML = "";
-//       products.forEach(product => {
-//         const row = `<tr>
-//           <td><img src="${product.image}" width="50" /></td>
-//           <td>${product.name}</td>
-//           <td>$${product.price}</td>
-//           <td>${product.category}</td>
-//           <td>${product.status}</td>
-//           <td>
-//             <button onclick="fillEditForm(${product.id})">Edit</button>
-//             <button onclick="deleteProduct(${product.id})">Delete</button>
-//           </td>
-//         </tr>`;
-//         tbody.innerHTML += row;
-//       });
-//     });
-// }
-
-// // Fill edit form
-// function fillEditForm(productId) {
-//   fetch(`http://localhost:3000/products/${productId}`)
-//     .then(res => res.json())
-//     .then(product => {
-//       const form = document.getElementById("edit-product-form");
-//       form.id.value = product.id;
-//       form.name.value = product.name;
-//       form.image.value = product.image;
-//       form.category.value = product.category;
-//       form.price.value = product.price;
-//     });
-// }
-
-// // Edit Product
-// document.getElementById("edit-product-form")?.addEventListener("submit", function (e) {
-//   e.preventDefault();
-//   const id = this.id.value;
-//   const updatedProduct = {
-//     name: this.name.value,
-//     image: this.image.value,
-//     category: this.category.value,
-//     price: +this.price.value
-//   };
-
-//   fetch(`http://localhost:3000/products/${id}`, {
-//     method: "PATCH",
-//     headers: { "Content-Type": "application/json" },
-//     body: JSON.stringify(updatedProduct)
-//   }).then(() => {
-//     alert("Product updated.");
-//     loadProducts(currentSellerId);
-//   });
-// });
-
-// // Delete Product
-// document.getElementById("delete-product-form")?.addEventListener("submit", function (e) {
-//   e.preventDefault();
-//   const id = this.id.value;
-
-//   fetch(`http://localhost:3000/products/${id}`, {
-//     method: "DELETE"
-//   }).then(() => {
-//     alert("Product deleted.");
-//     this.reset();
-//     loadProducts(currentSellerId);
-//   });
-// });
-
-// function deleteProduct(productId) {
-//   if (confirm("Are you sure you want to delete this product?")) {
-//     fetch(`http://localhost:3000/products/${productId}`, {
-//       method: "DELETE"
-//     }).then(() => {
-//       alert("Product deleted.");
-//       loadProducts(currentSellerId);
-//     });
-//   }
-// }
-
-// // ===================== ORDER MANAGEMENT =====================
-// function loadOrders(sellerId) {
-//   fetch(`http://localhost:3000/orders?sellerId=${sellerId}`)
-//     .then(res => res.json())
-//     .then(orders => {
-//       const tbody = document.getElementById("orders-list");
-//       tbody.innerHTML = "";
-//       orders.forEach(order => {
-//         const row = `<tr>
-//           <td>${order.id}</td>
-//           <td>${order.customer}</td>
-//           <td>${order.products.map(p => p.name).join(", ")}</td>
-//           <td>$${order.total}</td>
-//           <td>${order.date}</td>
-//           <td>${order.status}</td>
-//           <td>
-//             <select onchange="updateOrderStatus(${order.id}, this.value)">
-//               <option value="pending" ${order.status === 'pending' ? 'selected' : ''}>Pending</option>
-//               <option value="shipped" ${order.status === 'shipped' ? 'selected' : ''}>Shipped</option>
-//             </select>
-//           </td>
-//         </tr>`;
-//         tbody.innerHTML += row;
-//       });
-//     });
-// }
-
-// function updateOrderStatus(orderId, newStatus) {
-//   fetch(`http://localhost:3000/orders/${orderId}`, {
-//     method: "PATCH",
-//     headers: { "Content-Type": "application/json" },
-//     body: JSON.stringify({ status: newStatus })
-//   }).then(() => {
-//     alert("Order status updated.");
-//     loadOrders(currentSellerId);
-//   });
-// }
-// });
-const currentSeller = JSON.parse(localStorage.getItem("user"));
-
-// if (currentSeller) {
-//   const sellerObj = JSON.parse(currentSeller);
-//   let sellerId = sellerObj.id;
-//   console.log("Seller ID:", sellerId);
-// } else {
-//   console.error("No user found in localStorage");
-// }
 
 window.addEventListener("load", () => {
-  console.log(localStorage.getItem("user")); // Check stored value
-
-  // Handle tab switching
-  const tabs = document.querySelectorAll(".tab");
+  const currentSeller = JSON.parse(localStorage.getItem("user"));
+ console.log(JSON.parse(localStorage.getItem("user")))
+  const productGrid = document.getElementById("productGrid"); 
+  const ordersTableBody = document.getElementById("ordersTableBody");
+   const tabs = document.querySelectorAll(".tab");
   const sections = document.querySelectorAll("section");
-  const productsTableBody = document.querySelector("#productsTable tbody");
-  const ordersTableBody = document.querySelector("#ordersTable tbody");
 
-  tabs.forEach((tab) => {
+  tabs.forEach(tab => {
     tab.addEventListener("click", () => {
-      sections.forEach((sec) => sec.classList.remove("active"));
-      const targetId = tab.dataset.target;
-      document.getElementById(targetId).classList.add("active");
-
-      // Load data based on tab
-      if (targetId === "products") {
-        loadProducts();
-      } else if (targetId === "orders") {
-        loadorders();
-      }
+      tabs.forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
+      sections.forEach(sec => sec.style.display = "none");
+      document.getElementById(tab.dataset.target).style.display = "block";
     });
-
-    // products=> Approve or reject products submitted by Sellers, Edit or delete existing products.
-
-    // add product
-
-    document
-      .getElementById("add-product-form")
-      .addEventListener("submit", function (e) {
-        e.preventDefault();      
-          const product = {
-            name:this .name.value,
-            image: this.image.value,
-            category: this.category.value,
-            price: this.price.value,
-            sellerId: currentSeller.id,
-            status: "pending",
-          };
-          fetch("http://localhost:3000/products", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(product),
-          }).then(() => {
-            alert("Product added and pending approval.");
-            this.reset();
-            loadProducts(currentSeller);
-          });
-      
-      });
   });
+  // add product
+
+  document
+    .getElementById("add-product-form")
+    .addEventListener("submit", function (e) {
+      e.preventDefault();
+      const product = {
+        name: this.name.value,
+        image: this.image.value,
+        category: this.category.value,
+        price: this.price.value,
+        sellerId: currentSeller.id,
+        status: "pending",
+        rating: 0,
+      };
+      fetch("http://localhost:3000/products", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(product),
+      }).then(() => {
+        alert("Product added and pending approval.");
+        this.reset();
+        loadProducts(currentSeller);
+      });
+    });
 
   // Create and render product row
   const renderproduct = (product) => {
-    const tr = document.createElement("tr");
-    tr.innerHTML = `
-      <td>${product.id}</td>
-      <td>${product.name}</td>
-      <td>${product.price}</td>
-      <td>${product.status}</td>
-      <td>   
-        <button class="edit-product" data-id="${product.id}">Edit</button>
-        <button class="delete-product" data-id="${product.id}">Delete</button>
-      </td>
-    `;
-    productsTableBody.appendChild(tr);
+    const card = document.createElement("div");
+    card.classList.add("product-card");
+    card.innerHTML = `
+              <img src="${product.image}" alt="${product.name}">
+              <h3>${product.name}</h3>
+              <p>${product.category}</p>
+              <p>${product.status}</p>
+              <p class="price">$${product.price}</p>
+              <div class="button-group">
+                <button class="edit-btn" data-id="${product.id}">Edit</button>
+                <button class="delete-btn" data-id="${product.id}">Delete</button>
+              </div>
+            `;
+    productGrid.appendChild(card);
   };
   // Load all products from server
   const loadProducts = () => {
-    productsTableBody.innerHTML = "";
+    productGrid.innerHTML = "";
     fetch(`http://localhost:3000/products?sellerId=${currentSeller.id}`)
       .then((res) => res.json())
       .then((products) => {
@@ -254,17 +69,17 @@ window.addEventListener("load", () => {
       });
   };
   // actions
-  productsTableBody.addEventListener("click", function (e) {
+  productGrid.addEventListener("click", function (e) {
     const id = e.target.dataset.id;
 
-    if (e.target.classList.contains("delete-product")) {
+    if (e.target.classList.contains("delete-btn")) {
       fetch(`http://localhost:3000/products/${id}`, {
         method: "DELETE",
       }).then(() => loadProducts());
     }
 
     // Edit
-    else if (e.target.classList.contains("edit-product")) {
+    else if (e.target.classList.contains("edit-btn")) {
       fetch(`http://localhost:3000/products/${id}`)
         .then((res) => res.json())
         .then((product) => {

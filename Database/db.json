@@ -20,6 +20,13 @@
       "email": "alaa@alaa.com",
       "password": "123456",
       "role": "seller"
+    },
+    {
+      "id": "d797",
+      "username": "Ahmed Mamdouh",
+      "email": "amamdouh823@gmail.com",
+      "password": "123456",
+      "role": "customer"
     }
   ],
   "products": [
@@ -60,52 +67,232 @@
       "image": "https://via.placeholder.com/150"
     },
     {
-      "id": "235",
+      "id": "83ad",
+      "name": "ahmed",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdJQgzuCUGBYnXSY_gbyhe3kknUTxc6VDLqJqF3TRNaqhZX1korRvfvEc&usqp=CAE&s",
+      "category": "test",
+      "price": "1452",
       "sellerId": "f617",
-      "name": "Wireless ",
-      "price": 149.99877878,
-      "category": "lap",
-      "status": "approved",
-      "image": "https://via.placeholder.com/150"
+      "status": "pending"
     },
     {
-      "id": "234",
+      "id": "8c1a",
+      "name": "ahmed",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdJQgzuCUGBYnXSY_gbyhe3kknUTxc6VDLqJqF3TRNaqhZX1korRvfvEc&usqp=CAE&s",
+      "category": "test",
+      "price": "1452",
       "sellerId": "f617",
-      "name": "Wireless Headphones",
-      "price": 149.99,
-      "category": "accessories",
-      "status": "approved",
-      "image": "https://via.placeholder.com/150"
+      "status": "pending"
     },
     {
-      "id": "233",
+      "id": "8c1a",
+      "name": "ahmed",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdJQgzuCUGBYnXSY_gbyhe3kknUTxc6VDLqJqF3TRNaqhZX1korRvfvEc&usqp=CAE&s",
+      "category": "test",
+      "price": "1452",
       "sellerId": "f617",
-      "name": "Wireless Headphones",
-      "price": 149.99,
-      "category": "accessories",
-      "status": "approved",
-      "image": "https://via.placeholder.com/150"
+      "status": "pending"
     },
     {
-      "id": "232",
+      "id": "8c1a",
+      "name": "ahmed",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdJQgzuCUGBYnXSY_gbyhe3kknUTxc6VDLqJqF3TRNaqhZX1korRvfvEc&usqp=CAE&s",
+      "category": "test",
+      "price": "1452",
       "sellerId": "f617",
-      "name": "Wireless Headphones",
-      "price": 149.99,
-      "category": "accessories",
-      "status": "approved",
-      "image": "https://via.placeholder.com/150"
+      "status": "pending"
     },
     {
-      "id": "231",
+      "id": "8c1a",
+      "name": "ahmed",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdJQgzuCUGBYnXSY_gbyhe3kknUTxc6VDLqJqF3TRNaqhZX1korRvfvEc&usqp=CAE&s",
+      "category": "test",
+      "price": "1452",
       "sellerId": "f617",
-      "name": "Wireless Headphones",
-      "price": 149.99,
-      "category": "accessories",
-      "status": "approved",
-      "image": "https://via.placeholder.com/150"
+      "status": "pending"
+    },
+    {
+      "id": "8c1a",
+      "name": "ahmed",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdJQgzuCUGBYnXSY_gbyhe3kknUTxc6VDLqJqF3TRNaqhZX1korRvfvEc&usqp=CAE&s",
+      "category": "test",
+      "price": "1452",
+      "sellerId": "f617",
+      "status": "pending"
+    },
+    {
+      "id": "8c1a",
+      "name": "ahmed",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdJQgzuCUGBYnXSY_gbyhe3kknUTxc6VDLqJqF3TRNaqhZX1korRvfvEc&usqp=CAE&s",
+      "category": "test",
+      "price": "1452",
+      "sellerId": "f617",
+      "status": "pending"
+    },
+    {
+      "id": "8c1a",
+      "name": "ahmed",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdJQgzuCUGBYnXSY_gbyhe3kknUTxc6VDLqJqF3TRNaqhZX1korRvfvEc&usqp=CAE&s",
+      "category": "test",
+      "price": "1452",
+      "sellerId": "f617",
+      "status": "pending"
+    },
+    {
+      "id": "8c1a",
+      "name": "ahmed",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdJQgzuCUGBYnXSY_gbyhe3kknUTxc6VDLqJqF3TRNaqhZX1korRvfvEc&usqp=CAE&s",
+      "category": "test",
+      "price": "1452",
+      "sellerId": "f617",
+      "status": "pending"
+    },
+    {
+      "id": "8c1a",
+      "name": "ahmed",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdJQgzuCUGBYnXSY_gbyhe3kknUTxc6VDLqJqF3TRNaqhZX1korRvfvEc&usqp=CAE&s",
+      "category": "test",
+      "price": "1452",
+      "sellerId": "f617",
+      "status": "pending"
+    },
+    {
+      "id": "8c1a",
+      "name": "ahmed",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdJQgzuCUGBYnXSY_gbyhe3kknUTxc6VDLqJqF3TRNaqhZX1korRvfvEc&usqp=CAE&s",
+      "category": "test",
+      "price": "1452",
+      "sellerId": "f617",
+      "status": "pending"
+    },
+    {
+      "id": "8c1a",
+      "name": "ahmed",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdJQgzuCUGBYnXSY_gbyhe3kknUTxc6VDLqJqF3TRNaqhZX1korRvfvEc&usqp=CAE&s",
+      "category": "test",
+      "price": "1452",
+      "sellerId": "f617",
+      "status": "pending"
+    },
+    {
+      "id": "8c1a",
+      "name": "ahmed",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdJQgzuCUGBYnXSY_gbyhe3kknUTxc6VDLqJqF3TRNaqhZX1korRvfvEc&usqp=CAE&s",
+      "category": "test",
+      "price": "1452",
+      "sellerId": "f617",
+      "status": "pending"
+    },
+    {
+      "id": "8c1a",
+      "name": "ahmed",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdJQgzuCUGBYnXSY_gbyhe3kknUTxc6VDLqJqF3TRNaqhZX1korRvfvEc&usqp=CAE&s",
+      "category": "test",
+      "price": "1452",
+      "sellerId": "f617",
+      "status": "pending"
+    },
+    {
+      "id": "8c1a",
+      "name": "ahmed",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdJQgzuCUGBYnXSY_gbyhe3kknUTxc6VDLqJqF3TRNaqhZX1korRvfvEc&usqp=CAE&s",
+      "category": "test",
+      "price": "1452",
+      "sellerId": "f617",
+      "status": "pending"
+    },
+    {
+      "id": "8c1a",
+      "name": "ahmed",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdJQgzuCUGBYnXSY_gbyhe3kknUTxc6VDLqJqF3TRNaqhZX1korRvfvEc&usqp=CAE&s",
+      "category": "test",
+      "price": "1452",
+      "sellerId": "f617",
+      "status": "pending"
+    },
+    {
+      "id": "8c1a",
+      "name": "ahmed",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdJQgzuCUGBYnXSY_gbyhe3kknUTxc6VDLqJqF3TRNaqhZX1korRvfvEc&usqp=CAE&s",
+      "category": "test",
+      "price": "1452",
+      "sellerId": "f617",
+      "status": "pending"
+    },
+    {
+      "id": "8c1a",
+      "name": "ahmed",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdJQgzuCUGBYnXSY_gbyhe3kknUTxc6VDLqJqF3TRNaqhZX1korRvfvEc&usqp=CAE&s",
+      "category": "test",
+      "price": "1452",
+      "sellerId": "f617",
+      "status": "pending"
+    },
+    {
+      "id": "8c1a",
+      "name": "ahmed",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdJQgzuCUGBYnXSY_gbyhe3kknUTxc6VDLqJqF3TRNaqhZX1korRvfvEc&usqp=CAE&s",
+      "category": "test",
+      "price": "1452",
+      "sellerId": "f617",
+      "status": "pending"
+    },
+    {
+      "id": "8c1a",
+      "name": "ahmed",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdJQgzuCUGBYnXSY_gbyhe3kknUTxc6VDLqJqF3TRNaqhZX1korRvfvEc&usqp=CAE&s",
+      "category": "test",
+      "price": "1452",
+      "sellerId": "f617",
+      "status": "pending"
+    },
+    {
+      "id": "8c1a",
+      "name": "ahmed",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdJQgzuCUGBYnXSY_gbyhe3kknUTxc6VDLqJqF3TRNaqhZX1korRvfvEc&usqp=CAE&s",
+      "category": "test",
+      "price": "1452",
+      "sellerId": "f617",
+      "status": "pending"
+    },
+    {
+      "id": "8c1a",
+      "name": "ahmed",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdJQgzuCUGBYnXSY_gbyhe3kknUTxc6VDLqJqF3TRNaqhZX1korRvfvEc&usqp=CAE&s",
+      "category": "test",
+      "price": "1452",
+      "sellerId": "f617",
+      "status": "pending"
+    },
+    {
+      "id": "8c1a",
+      "name": "ahmed",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdJQgzuCUGBYnXSY_gbyhe3kknUTxc6VDLqJqF3TRNaqhZX1korRvfvEc&usqp=CAE&s",
+      "category": "test",
+      "price": "1452",
+      "sellerId": "f617",
+      "status": "pending"
+    },
+    {
+      "id": "0d40",
+      "name": "ahmed",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdJQgzuCUGBYnXSY_gbyhe3kknUTxc6VDLqJqF3TRNaqhZX1korRvfvEc&usqp=CAE&s",
+      "category": "test agian",
+      "price": "1452",
+      "sellerId": "f617",
+      "status": "pending",
+      "rating": 0
+    },
+    {
+      "id": "309a",
+      "name": "ahmed",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdJQgzuCUGBYnXSY_gbyhe3kknUTxc6VDLqJqF3TRNaqhZX1korRvfvEc&usqp=CAE&s",
+      "category": "test agian",
+      "price": "1452",
+      "sellerId": "f617",
+      "status": "pending",
+      "rating": 0
     }
-    
-   
   ],
   "cart": [
     {

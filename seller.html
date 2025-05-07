@@ -5,60 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>seller</title>
   <link rel="stylesheet" href="seller.css">
+  <script src="seller.js"></script>
   
   
 </head>
 <body>
   <div class="sidebar">
     <h2>My Shop</h2>
-    <span class="tab" data-target="products">Products</span>
+    <span class="tab active" data-target="products">Products</span>
     <span class="tab" data-target="orders">Orders</span>
   </div>
 
   <div class="content">
     <section id="products" class="active">
-      <h2>Manage Products</h2>
-      <table id="productsTable">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Status</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-      <div id="add-product-div" class="content-section">
-        <h2>Add Product</h2>
-        <form id="add-product-form">
-          <input type="text" placeholder="Name" name="name" required />
-          <input type="file" name="image" id="imageInput" accept="image/*" required />
-          <input type="text" placeholder="Category" name="category" required />
-          <input type="number" placeholder="Price" name="price" required />
-          <button type="submit">Add</button>
-        </form>
-      </div>
+      <h1>Manage Products</h1>
+      <div class="product-grid" id="productGrid"></div>
+      <form id="add-product-form">
+        <input type="text" placeholder="Name" name="name" required />
+        <input type="url" placeholder="Image URL" name="image" id="image" required />
+        <input type="text" placeholder="Category" name="category" required />
+        <input type="number" placeholder="Price" name="price" required />
+        <button type="submit">Add Product</button>
+      </form>
     </section>
 
-    <section id="orders">
-      <h2>Manage Orders</h2>
-      <table id="ordersTable">
+    <section id="orders" style="display: none;">
+      <h1>Manage Orders</h1>
+      <table class="orders-table" id="ordersTable">
         <thead>
           <tr>
             <th>ID</th>
-            <th>User</th>
+            <th>User ID</th>
             <th>Total</th>
             <th>Status</th>
             <th>Actions</th>
           </tr>
         </thead>
-        <tbody></tbody>
+        <tbody id="ordersTableBody">
+          <!-- Orders will be loaded here -->
+        </tbody>
       </table>
     </section>
+  </div>
    
-    <script src="seller.js"></script>
+    
 
 </body>
 </html>
