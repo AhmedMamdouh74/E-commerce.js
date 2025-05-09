@@ -51,6 +51,13 @@
       "email": "nour@nour.com",
       "password": "123456",
       "role": "customer"
+    },
+    {
+      "id": "f638",
+      "username": "alaa",
+      "email": "alaaattiyaaa@gmail.com",
+      "password": "alaa237",
+      "role": "seller"
     }
   ],
   "products": [
@@ -341,6 +348,21 @@
       ],
       "total": 615,
       "createdAt": "2025-05-09T13:28:26.763Z"
+    },
+    {
+      "id": "6858",
+      "userId": "d352",
+      "products": [
+        {
+          "productId": "262",
+          "name": "Shaan Soothing Gel 60 gm",
+          "price": 100,
+          "image": "https://eparkville.com/cdn/shop/files/Shaan_Soothing_Gel_60_gm.png?v=1731916667&width=800",
+          "quantity": 1
+        }
+      ],
+      "total": 100,
+      "createdAt": "2025-05-09T21:15:08.882Z"
     }
   ],
   "orders": [

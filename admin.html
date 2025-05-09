@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard</title>
   <link rel="stylesheet" href="admin.css">
+  <script>
+    const user = JSON.parse(localStorage.getItem('user'))
+    
+    if (user.role!='admin') {
+      alert("you are not authorised")
+      window.location.href="/"
+    }
+
+  </script>
   <script src="utils.js"></script>
   <script src="admin.js"></script>
   
@@ -15,6 +24,7 @@
     <span class="tab" data-target="users">Users</span>
     <span class="tab" data-target="products">Products</span>
     <span class="tab" data-target="orders">Orders</span>
+    <a href="./index.html" class="tab">Home</a>
   </div>
 
   <div class="content">

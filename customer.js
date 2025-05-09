@@ -1,3 +1,84 @@
+document.addEventListener('DOMContentLoaded',()=>{
+  const nav= document.getElementById('nav')
+  const user = JSON.parse( localStorage.getItem('user'))
+  console.log(user);
+  
+  if (!user) {
+    nav.innerHTML=`
+                   <ul>
+                    <li><a href="" class="nav-link active" data-section="products">Products</a></li>
+                    <li><a href="./login.html" class="">Login</a></li>
+                    <li><a href="./register.html" class="">Register</a></li>
+                </ul>
+    `
+  }
+  if(user.role==="customer"){
+    nav.innerHTML=`
+    <ul>
+                    <li><a href="#" class="nav-link active" data-section="products">Products</a></li>
+                    <li><a href="#" class="nav-link" data-section="orders">My Orders</a></li>
+                    <li><a href="#" class="nav-link" data-section="profile">Profile</a></li>
+                    <li>
+                        <a href="#" id="cartToggle">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>`
+  }
+  if(user.role==="seller"){
+    nav.innerHTML =`
+    <ul>
+                    <li><a href="#" class="nav-link active" data-section="products">Products</a></li>
+                    <li><a href="#" class="nav-link" data-section="orders">My Orders</a></li>
+                    <li><a href="#" class="nav-link" data-section="profile">Profile</a></li>
+                    <li><a href="./seller/seller.html" class="">Dashboard</a></li>
+                    <li>
+                        <a href="#" id="cartToggle">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+    
+    `
+  }
+  else{
+    nav.innerHTML =`
+    <ul>
+                    <li><a href="#" class="nav-link active" data-section="products">Products</a></li>
+                    <li><a href="#" class="nav-link" data-section="orders">My Orders</a></li>
+                    <li><a href="#" class="nav-link" data-section="profile">Profile</a></li>
+                    <li><a href="./admin.html" class="">Dashboard</a></li>
+                    <li>
+                        <a href="#" id="cartToggle">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+    
+    `
+  }
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function smoothScrollToSection(sectionElement) {
   sectionElement.scrollIntoView({
     behavior: 'smooth',
@@ -100,12 +181,19 @@ window.addEventListener("load", () => {
   // Cart Management
  
   const updateCartCount = (count) => {
+    if (!cartCount) {
+      return
+    }
     cartCount.textContent = count;
     cartCount.style.visibility = count > 0 ? 'visible' : 'hidden';
   };
 
   const addToCart = (productId) => {
-    fetchData(`cart?userId=${currentCustomer.id}`).then(carts => {
+    if (!currentCustomer) {
+      alert('you not logged in')
+      return
+    }
+    fetchData(`cart?userId=${currentCustomer?.id}`).then(carts => {
       const userCart = carts.find(c => c.userId === currentCustomer.id);
       
       if (!userCart) return createNewCart(productId);
@@ -151,7 +239,7 @@ window.addEventListener("load", () => {
   };
 
   const loadCart = () => {
-    fetchData(`cart?userId=${currentCustomer.id}`).then(carts => {
+    fetchData(`cart?userId=${currentCustomer?.id}`).then(carts => {
       const userCart = carts.find(c => c.userId === currentCustomer.id);
       cartSection.innerHTML = '';
 
@@ -252,7 +340,7 @@ window.addEventListener("load", () => {
   // Orders Section
 
   const loadOrders = () => {
-    fetchData(`orders?userId=${currentCustomer.id}`).then(orders => {
+    fetchData(`orders?userId=${currentCustomer?.id}`).then(orders => {
       ordersSection.innerHTML = orders.length > 0 
         ? orders.map(order => `
             <div class="order-item">
@@ -329,7 +417,7 @@ window.addEventListener("load", () => {
   });
 
   document.querySelector(".checkout-btn").addEventListener("click", handleCheckout);
-  cartToggle.addEventListener("click", () => cartSidebar.classList.add("open"));
+  cartToggle?.addEventListener("click", () => cartSidebar.classList.add("open"));
   closeCart.addEventListener("click", () => cartSidebar.classList.remove("open"));
   document.getElementById("profile-form").addEventListener("submit", saveProfile);
   searchBtn.addEventListener("click", searchProducts);

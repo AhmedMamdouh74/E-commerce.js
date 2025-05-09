@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>seller</title>
   <link rel="stylesheet" href="seller.css">
+  <script>
+        const user = JSON.parse(localStorage.getItem('user'))
+
+        if (user.role!='seller') {
+      alert("you are not authorised")
+      window.location.href="/"
+    }
+  </script>
   <script src="seller.js"></script>
   
   
@@ -14,6 +22,8 @@
     <h2>My Shop</h2>
     <span class="tab active" data-target="products">Products</span>
     <span class="tab" data-target="orders">Orders</span>
+    <a href="../index.html" class="tab" data-target="orders">Home</a>
+
   </div>
 
   <div class="content">
