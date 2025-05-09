@@ -34,3 +34,39 @@ function validateField(field, pattern) {
   
   return isValid;
 }
+const API_URL = "http://localhost:3000";
+ 
+ // Utils
+ let fetchData = function (endpoint) {
+  return fetch(`${API_URL}/${endpoint}`)
+    .then((response) => {
+      if (!response.ok) throw new Error("Failed to fetch data");
+      return response.json();
+    })
+    .catch((error) => console.error(error));
+};
+
+// Utils
+let sendData = function (endpoint, data, method = "POST") {
+  return fetch(`${API_URL}/${endpoint}`, {
+    method,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then((response) => response.json())
+    .catch((error) => console.error(error));
+};
+function showNotification(message, type = "success") {
+  const notification = document.createElement("div");
+  notification.className = `notification ${type}`;
+  notification.textContent = message;
+  document.body.appendChild(notification);
+  setTimeout(() => notification.remove(), 3000);
+}
+
+function handleError(error) {
+  console.error(error);
+  showNotification(error.message || "Operation failed", "error");
+}

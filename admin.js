@@ -212,16 +212,7 @@ window.addEventListener("load", () => {
         body: JSON.stringify({ status: "approved" }),
       }).then((res) =>
         res.json.then((updatedproduct) => {
-          const row = document
-            .querySelector(`[data-id="${id}"]`)
-            .closest("tr");
-          row.cells[3].textContent = updatedproduct.status; // Update status column
-
-          // Swap approve/reject buttons for edit/delete buttons
-          row.cells[4].innerHTML = `
-          <button class="edit-product" data-id="${id}">Edit</button>
-          <button class="delete-product" data-id="${id}">Delete</button>
-        `;
+         loadProducts();
         })
       );
     }
