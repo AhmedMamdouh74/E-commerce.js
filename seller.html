@@ -19,17 +19,17 @@
 </head>
 <body>
   <div class="sidebar">
-    <h2>My Shop</h2>
+    <h2>Seller</h2>
     <span class="tab active" data-target="products">Products</span>
     <span class="tab" data-target="orders">Orders</span>
-    <a href="../index.html" class="tab" data-target="orders">Home</a>
+    <a href="index.html" class="tab" data-target="orders">Home</a>
+    <span class="logout-btn" id="logoutBtn">Logout</span>  
 
   </div>
 
   <div class="content">
     <section id="products" class="active">
-      <h1>Manage Products</h1>
-      <div class="product-grid" id="productGrid"></div>
+     
       <form id="add-product-form">
         <input type="text" placeholder="Name" name="name" required />
         <input type="url" placeholder="Image URL" name="image" id="image" required />
@@ -37,6 +37,8 @@
         <input type="number" placeholder="Price" name="price" required />
         <button type="submit">Add Product</button>
       </form>
+       <h2>Manage Products</h2>
+       <div class="product-grid" id="productGrid"></div>
     </section>
 
     <section id="orders" style="display: none;">

@@ -54,10 +54,10 @@ window.addEventListener("load", function () {
         localStorage.setItem("user", JSON.stringify(user));
         window.location.href =
           user.role === "admin"
-            ? "/admin.html" 
+            ? "admin.html" 
             : user.role === "seller"
-            ? "/seller/seller.html"
-            : "/";
+            ? "seller.html"
+            : "customer.html";
       })
       .catch((error) => {
        

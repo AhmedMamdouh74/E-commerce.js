@@ -125,6 +125,20 @@ nav ul li a.active::after {
   height: 2px;
   background-color: #4361ee;
 }
+#nav ul li .logout-btn {
+    color: #ff4444;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+#nav ul li .logout-btn:hover {
+    background-color: rgba(255, 68, 68, 0.1);
+}
+
+#nav ul li .logout-btn i {
+    margin-right: 5px;
+}
 
 .cart-count {
   position: absolute;

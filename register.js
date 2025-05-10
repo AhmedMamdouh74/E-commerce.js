@@ -7,7 +7,7 @@ window.addEventListener("load", function () {
     password: form.querySelector('[name="password"]'),
     role: form.querySelector('[name="role"]'),
   };
-  let isSubmitting = false;
+
 
   // Real-time validation
   form.addEventListener("input", function (e) {
@@ -20,10 +20,7 @@ window.addEventListener("load", function () {
   // Form submission
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-    if (isSubmitting) return;
-    const submitButton = form.querySelector('button[type="submit"]');
-    submitButton.disabled = true;
-    isSubmitting = true;
+  e.stopPropagation();
 
     // Validate all fields
     const validations = [
@@ -34,8 +31,6 @@ window.addEventListener("load", function () {
     ];
 
     if (!validations.every((valid) => valid)) {
-      submitButton.disabled = false;
-      isSubmitting = false;
       return;
     }
 
@@ -78,9 +73,6 @@ window.addEventListener("load", function () {
             : "Registration failed. Please try again."
         );
       })
-      .finally(() => {
-        isSubmitting = false;
-        submitButton.disabled = false;
-      });
+      
   });
 });

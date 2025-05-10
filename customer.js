@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded',()=>{
                 </ul>
     `
   }
-  if(user.role==="customer"){
+ else if(user.role==="customer"){
     nav.innerHTML=`
     <ul>
                     <li><a href="#" class="nav-link active" data-section="products">Products</a></li>
@@ -24,15 +24,16 @@ document.addEventListener('DOMContentLoaded',()=>{
                             <span class="cart-count">0</span>
                         </a>
                     </li>
+                    <li><a href="#" id="logoutBtn">Logout</a></li>
                 </ul>`
   }
-  if(user.role==="seller"){
+ else if(user.role==="seller"){
     nav.innerHTML =`
     <ul>
                     <li><a href="#" class="nav-link active" data-section="products">Products</a></li>
                     <li><a href="#" class="nav-link" data-section="orders">My Orders</a></li>
                     <li><a href="#" class="nav-link" data-section="profile">Profile</a></li>
-                    <li><a href="./seller/seller.html" class="">Dashboard</a></li>
+                    <li><a href="seller.html" class="">Dashboard</a></li>
                     <li>
                         <a href="#" id="cartToggle">
                             <i class="fas fa-shopping-cart"></i>
@@ -107,9 +108,9 @@ window.addEventListener("load", () => {
     profile: document.getElementById("profile-section")
   };
 
-  // ======================
+
   // Section Management
-  // ======================
+
   const switchSection = (sectionId) => {
     // Hide all sections
     Object.values(sections).forEach(section => {
@@ -398,6 +399,12 @@ window.addEventListener("load", () => {
       switchSection(section);
       if (section === "orders") loadOrders();
     }
+     if (e.target.closest("#logoutBtn")) {
+    e.preventDefault();
+   
+   localStorage.removeItem("user");
+   window.location.href = "login.html"; // Redirect to login page
+  }
   });
 
   listProductHTML.addEventListener("click", (e) => {

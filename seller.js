@@ -105,7 +105,7 @@ window.addEventListener("load", () => {
     }
   });
 
-  // orders
+  
 
   // Create and render order row
   const renderorder = (order) => {
@@ -115,8 +115,15 @@ window.addEventListener("load", () => {
       <td>${order.userId}</td>
       <td>${order.total}</td>
       <td>${order.status}</td>
-      <td><button class="delete-order" data-id="${order.id}">Delete</button></td>
+  <td>   ${order.status === "pending"
+        ? `
+        <button class="deliverd-order" data-id="${order.id}">deliverd</button>
+        <button class="shipped-order" data-id="${order.id}">shipped</button>
+      `
+        : ""
+      }</td>
     `;
+   
     ordersTableBody.appendChild(tr);
   };
   // Load all products from server
@@ -128,15 +135,40 @@ window.addEventListener("load", () => {
         orders.forEach(renderorder);
       });
   };
-  // Event delegation for delete buttons
+  // Event delegation for order actions
   ordersTableBody.addEventListener("click", function (e) {
-    if (e.target.classList.contains("delete-order")) {
-      const id = e.target.dataset.id;
+  const id = e.target.dataset.id;
+       if (e.target.classList.contains("shipped-order")) {
       fetch(`http://localhost:3000/orders/${id}`, {
-        method: "DELETE",
-      }).then(() => loadorders());
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ status: "shipped" }),
+      }).then((res) =>
+        res.json.then((updatedproduct) => {
+         loadorders();
+        })
+      );
+
     }
-  });
+     else if (e.target.classList.contains("deliverd-order")) {
+      fetch(`http://localhost:3000/orders/${id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ status: "deliverd" }),
+      }).then((res) =>
+        res.json.then(() => {
+         loadorders();
+        })
+      );
+    }
+  });// end of order actions
+ 
+   document.getElementById('logoutBtn').addEventListener('click', function() {
+      if (confirm('Are you sure you want to logout?')) {
+        localStorage.removeItem('user');
+        window.location.href = 'login.html';
+      }
+    });
   loadProducts();
   loadorders();
 });

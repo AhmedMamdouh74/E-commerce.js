@@ -10,8 +10,8 @@
     {
       "id": "d797",
       "username": "Ahmed Mamdouh",
-      "email": "amamdouh823@gmail.com",
-      "password": "120120",
+      "email": "ahmed@gmail.com",
+      "password": "123456",
       "role": "customer",
       "name": "Ahmed",
       "phone": "01111708029",
@@ -19,41 +19,6 @@
     },
     {
       "id": "f617",
-      "username": "ahmed",
-      "email": "ahmed@examblee.com",
-      "password": "123456",
-      "role": "seller"
-    },
-    {
-      "id": "5e04",
-      "username": "ahmed",
-      "email": "ahmed@mamdouh.com",
-      "password": "123445",
-      "role": "customer"
-    },
-    {
-      "id": "f617",
-      "username": "Ahmed Mamdouh",
-      "email": "amam@gmail.com",
-      "password": "123456",
-      "role": "seller"
-    },
-    {
-      "id": "b5e2",
-      "username": "Ahmed Mamdouh",
-      "email": "amamdouh83@gmail.com",
-      "password": "123456",
-      "role": "customer"
-    },
-    {
-      "id": "9513",
-      "username": "nour",
-      "email": "nour@nour.com",
-      "password": "123456",
-      "role": "customer"
-    },
-    {
-      "id": "f638",
       "username": "alaa",
       "email": "alaaattiyaaa@gmail.com",
       "password": "alaa237",
@@ -363,6 +328,36 @@
       ],
       "total": 100,
       "createdAt": "2025-05-09T21:15:08.882Z"
+    },
+    {
+      "id": "bdd2",
+      "userId": "4d2b",
+      "products": [
+        {
+          "productId": "240",
+          "name": "Starville Whitening Cleanser 200 ml",
+          "price": 160,
+          "image": "https://eparkville.com/cdn/shop/files/Starville_Whitening_Cleanser_200_ml.png?v=1730972913&width=800",
+          "quantity": 1
+        }
+      ],
+      "total": 160,
+      "createdAt": "2025-05-10T10:26:06.671Z"
+    },
+    {
+      "id": "66ad",
+      "userId": "f638",
+      "products": [
+        {
+          "productId": "239",
+          "name": "Shaan Antioxidant Facial Cleanser 250 ml",
+          "price": 150,
+          "image": "https://eparkville.com/cdn/shop/files/Untitled_design_671a351c-e97f-401d-a46a-f1d8525e1dd7.png?v=1731922564&width=500",
+          "quantity": 1
+        }
+      ],
+      "total": 150,
+      "createdAt": "2025-05-10T12:08:41.163Z"
     }
   ],
   "orders": [
@@ -471,7 +466,7 @@
         }
       ],
       "total": 1165,
-      "status": "pending",
+      "status": "deliverd",
       "date": "2025-05-09T15:17:17.868Z"
     },
     {
@@ -522,7 +517,7 @@
         }
       ],
       "total": 1235,
-      "status": "pending",
+      "status": "shipped",
       "date": "2025-05-09T15:24:18.343Z"
     },
     {
@@ -540,6 +535,38 @@
       "total": 320,
       "status": "pending",
       "date": "2025-05-09T16:22:39.082Z"
+    },
+    {
+      "id": "4697",
+      "userId": "f638",
+      "products": [
+        {
+          "productId": "240",
+          "name": "Starville Whitening Cleanser 200 ml",
+          "price": 160,
+          "image": "https://eparkville.com/cdn/shop/files/Starville_Whitening_Cleanser_200_ml.png?v=1730972913&width=800",
+          "quantity": 1
+        }
+      ],
+      "total": 160,
+      "status": "pending",
+      "date": "2025-05-10T12:08:44.741Z"
+    },
+    {
+      "id": "237e",
+      "userId": "f638",
+      "products": [
+        {
+          "productId": "240",
+          "name": "Starville Whitening Cleanser 200 ml",
+          "price": 160,
+          "image": "https://eparkville.com/cdn/shop/files/Starville_Whitening_Cleanser_200_ml.png?v=1730972913&width=800",
+          "quantity": 1
+        }
+      ],
+      "total": 160,
+      "status": "pending",
+      "date": "2025-05-10T12:09:11.651Z"
     }
   ],
   "reviews": [
