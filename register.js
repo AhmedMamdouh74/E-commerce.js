@@ -63,7 +63,7 @@ window.addEventListener("load", function () {
       .then((newUser) => {
         localStorage.setItem("user", JSON.stringify(newUser));
         window.location.href =
-          newUser.role === "seller" ? "seller.html" : "customer.html";
+          newUser.role === "seller" ? "seller.html" : "index.html";
       })
       .catch((error) => {
         console.error("Registration error:", error);

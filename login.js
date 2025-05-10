@@ -57,7 +57,7 @@ window.addEventListener("load", function () {
             ? "admin.html" 
             : user.role === "seller"
             ? "seller.html"
-            : "customer.html";
+            : "index.html";
       })
       .catch((error) => {
        

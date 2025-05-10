@@ -301,7 +301,7 @@
           "name": "Starvile facile cleanser 100ml",
           "price": 80,
           "image": "https://eparkville.com/cdn/shop/files/StarvilleAcneProneSkinFacialCleanser100ml.png?v=1715817021&width=500",
-          "quantity": 1
+          "quantity": 3
         },
         {
           "productId": "262",
@@ -311,7 +311,7 @@
           "quantity": 1
         }
       ],
-      "total": 615,
+      "total": 775,
       "createdAt": "2025-05-09T13:28:26.763Z"
     },
     {
@@ -358,6 +358,21 @@
       ],
       "total": 150,
       "createdAt": "2025-05-10T12:08:41.163Z"
+    },
+    {
+      "id": "1ef9",
+      "userId": "1518",
+      "products": [
+        {
+          "productId": "239",
+          "name": "Shaan Antioxidant Facial Cleanser 250 ml",
+          "price": 150,
+          "image": "https://eparkville.com/cdn/shop/files/Untitled_design_671a351c-e97f-401d-a46a-f1d8525e1dd7.png?v=1731922564&width=500",
+          "quantity": 2
+        }
+      ],
+      "total": 300,
+      "createdAt": "2025-05-10T13:46:47.772Z"
     }
   ],
   "orders": [
