@@ -2,48 +2,48 @@ const patterns = {
   name: /^[A-Za-z ]{3,}$/,
   email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
   password: /^.{6,}$/,
-  role: /.+/
+  role: /.+/,
 };
 
-function getErrorMessage(fieldName) {
+let getErrorMessage = function (fieldName) {
   const messages = {
-      name: 'Must be at least 3 letters',
-      email: 'Invalid email format',
-      password: 'Minimum 6 characters required',
-      role: 'Please select a role'
+    name: "Must be at least 3 letters",
+    email: "Invalid email format",
+    password: "Minimum 6 characters required",
+    role: "Please select a role",
   };
-  return messages[fieldName] || 'Invalid field';
-}
+  return messages[fieldName] || "Invalid field";
+};
 
-function validateField(field, pattern) {
-  const errorElement = field.parentElement.querySelector('.error-message');
+let validateField = function (field, pattern) {
+  const errorElement = field.parentElement.querySelector(".error-message");
   if (!errorElement) {
-      console.error('Error element not found for:', field.name);
-      return false;
+    console.error("Error element not found for:", field.name);
+    return false;
   }
-  
+
   const isValid = pattern.test(field.value.trim());
-  const message = isValid ? '' : getErrorMessage(field.name);
-  
+  const message = isValid ? "" : getErrorMessage(field.name);
+
   // Update error message first
   errorElement.textContent = message;
-  
+
   // Then update field classes
-  field.classList.toggle('error', !isValid);
-  field.classList.toggle('valid', isValid);
-  
+  field.classList.toggle("error", !isValid);
+  field.classList.toggle("valid", isValid);
+
   return isValid;
-}
+};
 const API_URL = "http://localhost:3000";
- 
- // Utils
- let fetchData = function (endpoint) {
+
+// Utils
+let fetchData = function (endpoint) {
   return fetch(`${API_URL}/${endpoint}`)
     .then((response) => {
       if (!response.ok) throw new Error("Failed to fetch data");
       return response.json();
     })
-    .catch((error) => console.error(error));
+    .catch((error) => window.alert(`${error}`));
 };
 
 // Utils
@@ -56,7 +56,7 @@ let sendData = function (endpoint, data, method = "POST") {
     body: JSON.stringify(data),
   })
     .then((response) => response.json())
-    .catch((error) => console.error(error));
+    .catch((error) => window.alert(`${error}`));
 };
 function showNotification(message, type = "success") {
   const notification = document.createElement("div");

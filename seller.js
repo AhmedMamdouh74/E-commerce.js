@@ -31,11 +31,7 @@ window.addEventListener("load", () => {
         status: "pending",
         rating: 0,
       };
-      fetch("http://localhost:3000/products", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(product),
-      }).then(() => {
+      sendData("products", product,"post").then(() => {
         alert("Product added and pending approval.");
         this.reset();
         loadProducts(currentSeller);
@@ -62,8 +58,7 @@ window.addEventListener("load", () => {
   // Load all products from server
   const loadProducts = () => {
     productGrid.innerHTML = "";
-    fetch(`http://localhost:3000/products?sellerId=${currentSeller.id}`)
-      .then((res) => res.json())
+    fetchData(`products?sellerId=${currentSeller.id}`)
       .then((products) => {
         products.forEach(renderproduct);
       });
@@ -129,8 +124,8 @@ window.addEventListener("load", () => {
   // Load all products from server
   const loadorders = () => {
     ordersTableBody.innerHTML = "";
-    fetch("http://localhost:3000/orders")
-      .then((res) => res.json())
+    fetchData("orders")
+
       .then((orders) => {
         orders.forEach(renderorder);
       });
@@ -162,7 +157,7 @@ window.addEventListener("load", () => {
       );
     }
   });// end of order actions
- 
+ // Logout
    document.getElementById('logoutBtn').addEventListener('click', function() {
       if (confirm('Are you sure you want to logout?')) {
         localStorage.removeItem('user');

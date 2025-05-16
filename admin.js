@@ -31,13 +31,15 @@ window.addEventListener("load", () => {
       <td>${user.email}</td>
       <td>${user.role}</td>
      <td>
-      ${user.role === "admin"
-        ? ""
-        : `<button class="edit-user" data-id="${user.id}">Edit</button>`
+      ${
+        user.role === "admin"
+          ? ""
+          : `<button class="edit-user" data-id="${user.id}">Edit</button>`
       }
-      ${user.role === "admin"
-        ? ""
-        : `<button class="delete-user" data-id="${user.id}">Delete</button>`
+      ${
+        user.role === "admin"
+          ? ""
+          : `<button class="delete-user" data-id="${user.id}">Delete</button>`
       }
     </td>
     `;
@@ -47,11 +49,9 @@ window.addEventListener("load", () => {
   // Load all users from server
   const loadUsers = () => {
     usersTableBody.innerHTML = "";
-    fetch("http://localhost:3000/users")
-      .then((res) => { return res.json() })
-      .then((users) => {
-        users.forEach(renderUser);
-      });
+    fetchData("users").then((users) => {
+      users.forEach(renderUser);
+    });
   };
 
   // delete button
@@ -65,25 +65,20 @@ window.addEventListener("load", () => {
     } else {
       if (e.target.classList.contains("edit-user")) {
         const id = e.target.dataset.id;
-        fetch(`http://localhost:3000/users/${id}`)
-          .then((res) => { return res.json() })
-          .then((user) => {
-            const newUsername = prompt("Edit username:", user.username);
-            const newEmail = prompt("Edit email:", user.email);
-            const newRole = prompt("Edit role (seller/customer):", user.role);
-            if (newUsername && newEmail && newRole) {
-              fetch(`http://localhost:3000/users/${id}`, {
-                method: "PUT",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                  ...user,
-                  username: newUsername,
-                  email: newEmail,
-                  role: newRole,
-                }),
-              }).then(() => loadUsers());
-            }
-          });
+        fetchData(`users/${id}`).then((user) => {
+          const newUsername = prompt("Edit username:", user.username);
+          const newEmail = prompt("Edit email:", user.email);
+          const newRole = prompt("Edit role (seller/customer):", user.role);
+          if (newUsername && newEmail && newRole) {
+            let newUser = {
+              ...user,
+              username: newUsername,
+              email: newEmail,
+              role: newRole,
+            };
+            sendData(`users/${id}`, newUser, "PUT").then(() => loadUsers());
+          }
+        });
       }
     }
   });
@@ -96,8 +91,7 @@ window.addEventListener("load", () => {
     role: form.querySelector('[name="role"]'),
   };
 
-
-  // Real-time validation
+  //  validation
   form.addEventListener("input", function (e) {
     const target = e.target;
     if (target.name in fields) {
@@ -105,12 +99,9 @@ window.addEventListener("load", () => {
     }
   });
 
-  // Form submission
+  // Form submit
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-
-
-
 
     // Validate all fields
     const validations = [
@@ -120,9 +111,7 @@ window.addEventListener("load", () => {
       validateField(fields.role, patterns.role),
     ];
 
-    if (!validations.every((valid) => valid))
-      return;
-
+    if (!validations.every((valid) => valid)) return;
 
     const userData = {
       username: fields.name.value.trim(),
@@ -131,32 +120,14 @@ window.addEventListener("load", () => {
       role: fields.role.value,
     };
 
-    fetch("http://localhost:3000/users")
-      .then((res) => {
-        if (!res.ok) throw new Error("Network error");
-        return res.json();
-      })
+    fetchData("users")
       .then((users) => {
         if (users.some((u) => u.email === userData.email)) {
           throw new Error("User already exists");
         }
-        return fetch("http://localhost:3000/users", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(userData),
-        });
+        return sendData("users", userData);
       })
-      .then((res) => {
-        if (!res.ok) throw new Error("Registration failed");
-        return res.json();
-      })
-      .catch((error) => {
-        alert(
-          error.message === "User already exists"
-            ? "Email already registered!"
-            : "Registration failed. Please try again."
-        );
-      })
+
       .finally(() => {
         loadUsers();
       });
@@ -172,12 +143,13 @@ window.addEventListener("load", () => {
       <td>${product.name}</td>
       <td>${product.price}</td>
       <td>${product.status}</td>
-      <td>   ${product.status === "pending"
-        ? `
+      <td>   ${
+        product.status === "pending"
+          ? `
         <button class="approve-product" data-id="${product.id}">Approve</button>
         <button class="reject-product" data-id="${product.id}">Reject</button>
       `
-        : `
+          : `
         <button class="edit-product" data-id="${product.id}">Edit</button>
         <button class="delete-product" data-id="${product.id}">Delete</button>
       `
@@ -188,8 +160,7 @@ window.addEventListener("load", () => {
   // Load all products from server
   const loadProducts = () => {
     productsTableBody.innerHTML = "";
-    fetch("http://localhost:3000/products")
-      .then((res) => res.json())
+    fetchData("products")
       .then((products) => {
         products.forEach(renderproduct);
       });
@@ -211,8 +182,8 @@ window.addEventListener("load", () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ status: "approved" }),
       }).then((res) =>
-        res.json.then((updatedproduct) => {
-         loadProducts();
+        res.json.then(() => {
+          loadProducts();
         })
       );
     }
@@ -281,15 +252,15 @@ window.addEventListener("load", () => {
       }).then(() => loadorders());
     }
   });
-     document.getElementById('logoutBtn').addEventListener('click', function() {
-      if (confirm('Are you sure you want to logout?')) {
-        localStorage.removeItem('user');
-        window.location.href = 'login.html';
-      }
-    });
+  // Logout button
+  document.getElementById("logoutBtn").addEventListener("click", function () {
+    if (confirm("Are you sure you want to logout?")) {
+      localStorage.removeItem("user");
+      window.location.href = "login.html";
+    }
+  });
 
   loadUsers();
   loadProducts();
   loadorders();
-
 });
